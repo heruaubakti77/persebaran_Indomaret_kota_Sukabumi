@@ -1,0 +1,1702 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <style>
+        #map {
+            width: 1068px;
+            height: 579px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/ADMINISTRASIDESA_AR_25K_1.js"></script>
+        <script src="data/JALAN_LN_25K_2.js"></script>
+        <script src="data/projalankota_3.js"></script>
+        <script src="data/indomaret_kota_sukabumi_4.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-6.98315469915242,106.80704417038842],[-6.893418990152458,106.97282972635705]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_OpenStreetMap_0');
+        map.getPane('pane_OpenStreetMap_0').style.zIndex = 400;
+        var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OpenStreetMap_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OpenStreetMap_0;
+        map.addLayer(layer_OpenStreetMap_0);
+        function pop_ADMINISTRASIDESA_AR_25K_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMOBJ'] !== null ? autolinker.link(feature.properties['NAMOBJ'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Area'] !== null ? autolinker.link(feature.properties['SHAPE_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ADMINISTRASIDESA_AR_25K_1_0(feature) {
+            switch(String(feature.properties['NAMOBJ'])) {
+                case 'Babakan':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(29,84,201,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Baros':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,72,231,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Benteng':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(38,126,234,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Cibeureum Hilir':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(69,225,118,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Cibontang':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(93,118,221,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Cikaret':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,166,14,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Cikole':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(19,202,165,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Cikondang':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(201,84,108,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Cikundul':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(47,224,56,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Cipanengah':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(109,227,219,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Cipetir':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(236,70,61,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Cisarua':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,72,229,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Citamiang':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(30,20,223,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Dayeuhluhur':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(151,202,32,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Gedong Panjang':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(216,104,81,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Gunungguruh':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(201,65,144,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Gunungparang':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,147,95,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Gunungpuyuh':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(60,167,213,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Jayamekar':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(169,66,217,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Jayaraksa':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(92,227,58,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Karamat':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,45,221,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Karang Tengah':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(70,186,212,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Kebonjati':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,235,15,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Kebonmanggu':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(206,155,53,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Lembursitu':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(120,169,207,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Limusnunggal':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,214,33,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Nanggeleng':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(134,235,240,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Neglasari':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,34,102,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Nyomplong':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,58,200,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Parungseah':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,130,89,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Pasirhalang':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(240,53,137,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sasagaran':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(60,25,219,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Selabatu':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(71,221,154,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sindangpalay':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(77,217,100,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sindangsari':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,59,216,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Situmekar':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(28,227,115,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sriwidari':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,75,176,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Subangjaya':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,218,15,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sukajaya':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(151,207,72,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sukakarya':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(172,46,203,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sukamantri':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,109,119,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sukaraja':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(203,207,123,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sukaresmi':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(101,109,221,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Tipar':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(135,98,222,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Wangunreja':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(229,164,85,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Warnasari':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,217,133,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Warudoyong':
+                    return {
+                pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(115,214,65,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_ADMINISTRASIDESA_AR_25K_1');
+        map.getPane('pane_ADMINISTRASIDESA_AR_25K_1').style.zIndex = 401;
+        map.getPane('pane_ADMINISTRASIDESA_AR_25K_1').style['mix-blend-mode'] = 'normal';
+        var layer_ADMINISTRASIDESA_AR_25K_1 = new L.geoJson(json_ADMINISTRASIDESA_AR_25K_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ADMINISTRASIDESA_AR_25K_1',
+            layerName: 'layer_ADMINISTRASIDESA_AR_25K_1',
+            pane: 'pane_ADMINISTRASIDESA_AR_25K_1',
+            onEachFeature: pop_ADMINISTRASIDESA_AR_25K_1,
+            style: style_ADMINISTRASIDESA_AR_25K_1_0,
+        });
+        bounds_group.addLayer(layer_ADMINISTRASIDESA_AR_25K_1);
+        map.addLayer(layer_ADMINISTRASIDESA_AR_25K_1);
+        function pop_JALAN_LN_25K_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['REMARK'] !== null ? autolinker.link(feature.properties['REMARK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_JALAN_LN_25K_2_0() {
+            return {
+                pane: 'pane_JALAN_LN_25K_2',
+                opacity: 1,
+                color: 'rgba(190,207,80,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_JALAN_LN_25K_2');
+        map.getPane('pane_JALAN_LN_25K_2').style.zIndex = 402;
+        map.getPane('pane_JALAN_LN_25K_2').style['mix-blend-mode'] = 'normal';
+        var layer_JALAN_LN_25K_2 = new L.geoJson(json_JALAN_LN_25K_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_JALAN_LN_25K_2',
+            layerName: 'layer_JALAN_LN_25K_2',
+            pane: 'pane_JALAN_LN_25K_2',
+            onEachFeature: pop_JALAN_LN_25K_2,
+            style: style_JALAN_LN_25K_2_0,
+        });
+        bounds_group.addLayer(layer_JALAN_LN_25K_2);
+        map.addLayer(layer_JALAN_LN_25K_2);
+        function pop_projalankota_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['REMARK'] !== null ? autolinker.link(feature.properties['REMARK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_projalankota_3_0(feature) {
+            switch(String(feature.properties['REMARK'])) {
+                case 'Jalan Lain':
+                    return {
+                pane: 'pane_projalankota_3',
+                opacity: 1,
+                color: 'rgba(53,168,203,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Jalan Lokal':
+                    return {
+                pane: 'pane_projalankota_3',
+                opacity: 1,
+                color: 'rgba(86,218,34,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Jalan Setapak':
+                    return {
+                pane: 'pane_projalankota_3',
+                opacity: 1,
+                color: 'rgba(205,138,117,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_projalankota_3');
+        map.getPane('pane_projalankota_3').style.zIndex = 403;
+        map.getPane('pane_projalankota_3').style['mix-blend-mode'] = 'normal';
+        var layer_projalankota_3 = new L.geoJson(json_projalankota_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_projalankota_3',
+            layerName: 'layer_projalankota_3',
+            pane: 'pane_projalankota_3',
+            onEachFeature: pop_projalankota_3,
+            style: style_projalankota_3_0,
+        });
+        bounds_group.addLayer(layer_projalankota_3);
+        map.addLayer(layer_projalankota_3);
+        function pop_indomaret_kota_sukabumi_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">OID_</th>\
+                        <td>' + (feature.properties['OID_'] !== null ? autolinker.link(feature.properties['OID_'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FolderPath</th>\
+                        <td>' + (feature.properties['FolderPath'] !== null ? autolinker.link(feature.properties['FolderPath'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SymbolID</th>\
+                        <td>' + (feature.properties['SymbolID'] !== null ? autolinker.link(feature.properties['SymbolID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lokasi</th>\
+                        <td>' + (feature.properties['Lokasi'] !== null ? autolinker.link(feature.properties['Lokasi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">gambar</th>\
+                        <td>' + (feature.properties['gambar'] !== null ? '<img src="images/' + String(feature.properties['gambar']).replace(/[\\\/:]/g, '_').trim() + '">' : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_indomaret_kota_sukabumi_4_0(feature) {
+            switch(String(feature.properties['Name'])) {
+                case 'ATM BNI Indomaret Lembur Situ':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,122,173,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,132,219,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Ahmad Yani Sukabumi':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(99,172,203,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Baros Sukabumi':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(194,225,83,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'INDOMARET BHAYANGKARA':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(211,161,123,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Cikondang Sukabumi':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(173,220,120,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'INDOMARET CIPANENGAH':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(108,164,238,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Didi Sukardi':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(94,230,44,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret kramat':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(21,210,122,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret LP3i':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(236,206,143,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Nyomplong':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(206,46,185,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Otista Sukabumi':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(206,129,218,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Pelda re suryanta':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(218,112,123,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Perintis Kemerdekaan':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(47,208,90,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Ra Kosasih':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,200,120,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Raden Samsudin':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(205,100,137,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Ring Road Cibolang':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,120,96,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret SPBU Ciaul':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(116,107,210,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Sriwedari':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(30,199,208,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Tegal Lega':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(81,207,79,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomart bunut':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,218,193,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomart Lembursitu':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 17.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(169,81,228,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        function style_indomaret_kota_sukabumi_4_1(feature) {
+            switch(String(feature.properties['Name'])) {
+                case 'ATM BNI Indomaret Lembur Situ':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,122,173,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,132,219,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Ahmad Yani Sukabumi':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(99,172,203,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Baros Sukabumi':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(194,225,83,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'INDOMARET BHAYANGKARA':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(211,161,123,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Cikondang Sukabumi':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(173,220,120,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'INDOMARET CIPANENGAH':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(108,164,238,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Didi Sukardi':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(94,230,44,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret kramat':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(21,210,122,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret LP3i':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(236,206,143,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Nyomplong':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(206,46,185,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Otista Sukabumi':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(206,129,218,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Pelda re suryanta':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(218,112,123,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Perintis Kemerdekaan':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(47,208,90,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Ra Kosasih':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,200,120,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Raden Samsudin':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(205,100,137,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Ring Road Cibolang':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,120,96,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret SPBU Ciaul':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(116,107,210,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Sriwedari':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(30,199,208,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomaret Tegal Lega':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(81,207,79,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomart bunut':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,218,193,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Indomart Lembursitu':
+                    return {
+                pane: 'pane_indomaret_kota_sukabumi_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(169,81,228,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_indomaret_kota_sukabumi_4');
+        map.getPane('pane_indomaret_kota_sukabumi_4').style.zIndex = 404;
+        map.getPane('pane_indomaret_kota_sukabumi_4').style['mix-blend-mode'] = 'normal';
+        var layer_indomaret_kota_sukabumi_4 = new L.geoJson.multiStyle(json_indomaret_kota_sukabumi_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_indomaret_kota_sukabumi_4',
+            layerName: 'layer_indomaret_kota_sukabumi_4',
+            pane: 'pane_indomaret_kota_sukabumi_4',
+            onEachFeature: pop_indomaret_kota_sukabumi_4,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_indomaret_kota_sukabumi_4_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_indomaret_kota_sukabumi_4_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_indomaret_kota_sukabumi_4);
+        map.addLayer(layer_indomaret_kota_sukabumi_4);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'indomaret_kota_sukabumi<br /><table><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_ATMBNIIndomaretLemburSitu0.png" /></td><td>ATM BNI Indomaret Lembur Situ</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_Indomaret1.png" /></td><td>Indomaret</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretAhmadYaniSukabumi2.png" /></td><td>Indomaret Ahmad Yani Sukabumi</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretBarosSukabumi3.png" /></td><td>Indomaret Baros Sukabumi</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_INDOMARETBHAYANGKARA4.png" /></td><td>INDOMARET BHAYANGKARA</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretCikondangSukabumi5.png" /></td><td>Indomaret Cikondang Sukabumi</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_INDOMARETCIPANENGAH6.png" /></td><td>INDOMARET CIPANENGAH</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretDidiSukardi7.png" /></td><td>Indomaret Didi Sukardi</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_Indomaretkramat8.png" /></td><td>Indomaret kramat</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretLP3i9.png" /></td><td>Indomaret LP3i</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretNyomplong10.png" /></td><td>Indomaret Nyomplong</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretOtistaSukabumi11.png" /></td><td>Indomaret Otista Sukabumi</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretPeldaresuryanta12.png" /></td><td>Indomaret Pelda re suryanta</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretPerintisKemerdekaan13.png" /></td><td>Indomaret Perintis Kemerdekaan</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretRaKosasih14.png" /></td><td>Indomaret Ra Kosasih</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretRadenSamsudin15.png" /></td><td>Indomaret Raden Samsudin</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretRingRoadCibolang16.png" /></td><td>Indomaret Ring Road Cibolang</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretSPBUCiaul17.png" /></td><td>Indomaret SPBU Ciaul</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretSriwedari18.png" /></td><td>Indomaret Sriwedari</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomaretTegalLega19.png" /></td><td>Indomaret Tegal Lega</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_Indomartbunut20.png" /></td><td>Indomart bunut</td></tr><tr><td style="text-align: center;"><img src="legend/indomaret_kota_sukabumi_4_IndomartLembursitu21.png" /></td><td>Indomart Lembursitu</td></tr></table>': layer_indomaret_kota_sukabumi_4,'pro-jalan kota<br /><table><tr><td style="text-align: center;"><img src="legend/projalankota_3_JalanLain0.png" /></td><td>Jalan Lain</td></tr><tr><td style="text-align: center;"><img src="legend/projalankota_3_JalanLokal1.png" /></td><td>Jalan Lokal</td></tr><tr><td style="text-align: center;"><img src="legend/projalankota_3_JalanSetapak2.png" /></td><td>Jalan Setapak</td></tr></table>': layer_projalankota_3,'<img src="legend/JALAN_LN_25K_2.png" /> JALAN_LN_25K': layer_JALAN_LN_25K_2,'ADMINISTRASIDESA_AR_25K<br /><table><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Babakan0.png" /></td><td>Babakan</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Baros1.png" /></td><td>Baros</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Benteng2.png" /></td><td>Benteng</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_CibeureumHilir3.png" /></td><td>Cibeureum Hilir</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Cibontang4.png" /></td><td>Cibontang</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Cikaret5.png" /></td><td>Cikaret</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Cikole6.png" /></td><td>Cikole</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Cikondang7.png" /></td><td>Cikondang</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Cikundul8.png" /></td><td>Cikundul</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Cipanengah9.png" /></td><td>Cipanengah</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Cipetir10.png" /></td><td>Cipetir</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Cisarua11.png" /></td><td>Cisarua</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Citamiang12.png" /></td><td>Citamiang</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Dayeuhluhur13.png" /></td><td>Dayeuhluhur</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_GedongPanjang14.png" /></td><td>Gedong Panjang</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Gunungguruh15.png" /></td><td>Gunungguruh</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Gunungparang16.png" /></td><td>Gunungparang</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Gunungpuyuh17.png" /></td><td>Gunungpuyuh</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Jayamekar18.png" /></td><td>Jayamekar</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Jayaraksa19.png" /></td><td>Jayaraksa</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Karamat20.png" /></td><td>Karamat</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_KarangTengah21.png" /></td><td>Karang Tengah</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Kebonjati22.png" /></td><td>Kebonjati</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Kebonmanggu23.png" /></td><td>Kebonmanggu</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Lembursitu24.png" /></td><td>Lembursitu</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Limusnunggal25.png" /></td><td>Limusnunggal</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Nanggeleng26.png" /></td><td>Nanggeleng</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Neglasari27.png" /></td><td>Neglasari</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Nyomplong28.png" /></td><td>Nyomplong</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Parungseah29.png" /></td><td>Parungseah</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Pasirhalang30.png" /></td><td>Pasirhalang</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Sasagaran31.png" /></td><td>Sasagaran</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Selabatu32.png" /></td><td>Selabatu</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Sindangpalay33.png" /></td><td>Sindangpalay</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Sindangsari34.png" /></td><td>Sindangsari</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Situmekar35.png" /></td><td>Situmekar</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Sriwidari36.png" /></td><td>Sriwidari</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Subangjaya37.png" /></td><td>Subangjaya</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Sukajaya38.png" /></td><td>Sukajaya</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Sukakarya39.png" /></td><td>Sukakarya</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Sukamantri40.png" /></td><td>Sukamantri</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Sukaraja41.png" /></td><td>Sukaraja</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Sukaresmi42.png" /></td><td>Sukaresmi</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Tipar43.png" /></td><td>Tipar</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Wangunreja44.png" /></td><td>Wangunreja</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Warnasari45.png" /></td><td>Warnasari</td></tr><tr><td style="text-align: center;"><img src="legend/ADMINISTRASIDESA_AR_25K_1_Warudoyong46.png" /></td><td>Warudoyong</td></tr></table>': layer_ADMINISTRASIDESA_AR_25K_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_indomaret_kota_sukabumi_4.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_indomaret_kota_sukabumi_4'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        map.addControl(new L.Control.Search({
+            layer: layer_indomaret_kota_sukabumi_4,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'Name'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        resetLabels([layer_indomaret_kota_sukabumi_4]);
+        map.on("zoomend", function(){
+            resetLabels([layer_indomaret_kota_sukabumi_4]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_indomaret_kota_sukabumi_4]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_indomaret_kota_sukabumi_4]);
+        });
+        </script>
+    </body>
+</html>
